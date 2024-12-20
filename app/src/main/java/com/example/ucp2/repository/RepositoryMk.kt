@@ -1,4 +1,15 @@
 package com.example.ucp2.repository
 
-interface RepositoryMk {
+import com.example.ucp2.data.entity.MataKuliah
+import kotlinx.coroutines.flow.Flow
+
+interface RepositoryMk {suspend fun insertMk(mataKuliah: MataKuliah)
+
+    fun getAllMk() : Flow<List<MataKuliah>>
+
+    fun getMk(kode : String) : Flow<MataKuliah>
+
+    suspend fun deleteMk(Matakuliah: MataKuliah)
+
+    suspend fun updateMk(Matakuliah: MataKuliah)
 }
