@@ -14,6 +14,13 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
+fun halamanutamaview(
+    onDosenClick: () -> Unit,
+    onMataKuliahClick: () -> Unit,
+    modifier: Modifier = Modifier
+) {
+
+@Composable
 fun StaticButton(text: String, onClick: () -> Unit) {
     Button(
         onClick = onClick,
