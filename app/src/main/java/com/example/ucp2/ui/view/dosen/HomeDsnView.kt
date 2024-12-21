@@ -16,6 +16,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.ucp2.ui.costumwidget.TopAppBar
 import com.example.ucp2.ui.viewmodel.dosen.HomeDsnViewModel
+import com.example.ucp2.ui.viewmodel.dosen.HomeUiState
 import com.example.ucp2.ui.viewmodel.dosen.PenyediaDsnViewModel
 
 @Composable
@@ -63,3 +64,10 @@ fun HomeDsnView (
         )
     }
 }
+
+@Composable
+fun BodyHomeDsnView (
+    homeUiState: HomeUiState,
+    onClick: (String) -> Unit = { },
+    modifier: Modifier = Modifier
+) {}
