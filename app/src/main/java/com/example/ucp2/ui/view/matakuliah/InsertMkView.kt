@@ -17,12 +17,26 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.ucp2.data.entity.Dosen
 import com.example.ucp2.ui.costumwidget.DynamicSelectedTextField
+import com.example.ucp2.ui.viewmodel.dosen.HomeDsnViewModel
+import com.example.ucp2.ui.viewmodel.dosen.PenyediaDsnViewModel
 import com.example.ucp2.ui.viewmodel.matakuliah.FormErrorState
 import com.example.ucp2.ui.viewmodel.matakuliah.HomeUiState
 import com.example.ucp2.ui.viewmodel.matakuliah.MatakuliahEvent
+import com.example.ucp2.ui.viewmodel.matakuliah.MatakuliahViewModel
 import com.example.ucp2.ui.viewmodel.matakuliah.MkUIState
+import com.example.ucp2.ui.viewmodel.matakuliah.PenyediaMkViewModel
+
+@Composable
+fun InsertMkView(
+    onBack: () -> Unit,
+    onNavigate: () -> Unit,
+    modifier: Modifier = Modifier,
+    viewModel: MatakuliahViewModel = viewModel(factory = PenyediaMkViewModel.Factory),
+    viewModelDsn: HomeDsnViewModel = viewModel(factory = PenyediaDsnViewModel.Factory)
+) {}
 
 @Composable
 fun InsertBodyMk(
