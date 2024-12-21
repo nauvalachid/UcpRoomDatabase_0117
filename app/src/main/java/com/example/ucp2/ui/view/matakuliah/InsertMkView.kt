@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material3.Button
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Text
@@ -30,7 +31,27 @@ fun InsertBodyMk(
     uiState: MkUIState,
     onClick: () -> Unit,
     listDosen: HomeUiState
-) {}
+) {
+    Column(
+        modifier = modifier.fillMaxWidth(),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ){
+        FormMatakuliah(
+            matakuliahEvent = uiState.matakuliahEvent,
+            onValueChange = onValueChange,
+            errorState = uiState.isEntryValid,
+            modifier = Modifier.fillMaxWidth(),
+            listDsn = listDosen.listDsn
+        )
+        Button(
+            onClick = onClick,
+            modifier = Modifier.fillMaxWidth()
+        ){
+            Text("Simpan")
+        }
+    }
+}
 
 @Composable
 fun FormMatakuliah(
