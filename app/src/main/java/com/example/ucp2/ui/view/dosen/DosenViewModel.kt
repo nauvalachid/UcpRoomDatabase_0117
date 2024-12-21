@@ -4,7 +4,9 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.ucp2.repository.RepositoryDsn
+import kotlinx.coroutines.launch
 
 class DosenViewModel(private val repositoryDsn: RepositoryDsn) : ViewModel() {
 
@@ -25,4 +27,30 @@ class DosenViewModel(private val repositoryDsn: RepositoryDsn) : ViewModel() {
         )
         uiState = uiState.copy(isEntryValid = errorState)
         return errorState.isValid()
+    }
+
+    fun saveData() {
+        val currentEvent = uiState.dosenEvent
+        if (validateFields()) {
+            viewModelScope.launch {
+                try {
+                    repositoryDsn.insertDsn(currentEvent.toDosenEntity())
+                    uiState = uiState.copy(
+                        snackBarMessage = "Data Berhasil Disimpan",
+                        dosenEvent = DosenEvent(),
+                        isEntryValid = FormErrorState()
+                    )
+                }
+                catch (e: Exception) {
+                    uiState = uiState.copy(
+                        snackBarMessage = "Data Gagal Disimpan"
+                    )
+                }
+            }
+        }
+        else{
+            uiState = uiState.copy(
+                snackBarMessage = "Input tidak Valid. Periksa Kembali data yang anda masukkan"
+            )
+        }
     }
