@@ -24,6 +24,14 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.ucp2.data.entity.MataKuliah
+import com.example.ucp2.ui.viewmodel.dosen.HomeUiState
+
+@Composable
+fun BodyHomeMkView (
+    homeUiState: HomeUiState,
+    onClick: (String) -> Unit = { },
+    modifier: Modifier = Modifier
+) {}
 
 @Composable
 fun ListMatakuliah (
