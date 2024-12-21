@@ -18,6 +18,20 @@ class MatakuliahViewModel(private val repositoryMk: RepositoryMk) : ViewModel() 
         )
     }
 
+    fun validateFields(): Boolean {
+        val event = uiState.matakuliahEvent
+        val errorState = FormErrorState(
+            kode = if (event.kode.isNotEmpty()) null else "Kode tidak boleh kosong",
+            nama = if (event.nama.isNotEmpty()) null else "Nama tidak boleh kosong",
+            sks = if (event.sks.isNotEmpty()) null else "SKS tidak boleh kosong",
+            semester = if (event.semester.isNotEmpty()) null else "semester tidak boleh kosong",
+            jenis = if (event.jenis.isNotEmpty()) null else "Jenis tidak boleh kosong",
+            dosenpengampu = if (event.dosenpengampu.isNotEmpty()) null else "Dosen Pengampu tidak boleh kosong",
+        )
+        uiState = uiState.copy(isEntryValid = errorState)
+        return errorState.isValid()
+    }
+
 data class MkUIState(
     val matakuliahEvent: MatakuliahEvent = MatakuliahEvent(),
     val isEntryValid: FormErrorState = FormErrorState(),
