@@ -3,6 +3,7 @@ package com.example.ucp2.ui.viewmodel.matakuliah
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.ucp2.data.entity.MataKuliah
 import com.example.ucp2.repository.RepositoryMk
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
@@ -64,4 +65,15 @@ data class DetailUiState(
 
     val isUiEventNotEmpty: Boolean
         get() = detailUiEvent != MatakuliahEvent ()
+}
+
+fun MataKuliah.toDetailUiEvent () : MatakuliahEvent {
+    return MatakuliahEvent(
+        kode = kode,
+        nama = nama,
+        sks = sks,
+        semester = semester,
+        jenis = jenis,
+        dosenpengampu = dosenpengampu
+    )
 }
