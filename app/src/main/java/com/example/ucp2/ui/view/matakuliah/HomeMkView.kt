@@ -28,6 +28,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
@@ -38,7 +39,6 @@ import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.ucp2.data.entity.MataKuliah
 import com.example.ucp2.ui.costumwidget.TopAppBar
-import com.example.ucp2.ui.viewmodel.dosen.HomeUiState
 import com.example.ucp2.ui.viewmodel.matakuliah.HomeMkViewModel
 import com.example.ucp2.ui.viewmodel.matakuliah.PenyediaMkViewModel
 import kotlinx.coroutines.launch
@@ -91,7 +91,7 @@ fun HomeMkView (
 
 @Composable
 fun BodyHomeMkView (
-    homeUiState: HomeUiState,
+    homeUiState: com.example.ucp2.ui.viewmodel.matakuliah.HomeUiState,
     onClick: (String) -> Unit = { },
     modifier: Modifier = Modifier
 ) {
