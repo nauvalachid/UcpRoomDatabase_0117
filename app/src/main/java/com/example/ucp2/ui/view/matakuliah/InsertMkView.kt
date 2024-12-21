@@ -13,4 +13,8 @@ fun FormMatakuliah(
     errorState: FormErrorState = FormErrorState(),
     modifier: Modifier = Modifier,
     listDsn: List<Dosen>
-) {}
+) {
+    val sks = listOf("1", "2", "3")
+    val jenis = listOf("Peminatan" , "Wajib")
+    val namaDosenList = listDsn.map { it.nama }
+}
