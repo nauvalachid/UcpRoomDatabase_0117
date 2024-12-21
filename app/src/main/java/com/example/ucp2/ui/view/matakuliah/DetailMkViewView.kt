@@ -7,6 +7,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 
 @Composable
+fun ComponentDetailMk (
+    modifier: Modifier = Modifier,
+    judul: String,
+    isinya: String,
+) {}
+
+@Composable
 private fun DeleteConfirmationDialog (
     onDeleteConfirm: () -> Unit, onDeleteCancel: () -> Unit, modifier: Modifier =
         Modifier
