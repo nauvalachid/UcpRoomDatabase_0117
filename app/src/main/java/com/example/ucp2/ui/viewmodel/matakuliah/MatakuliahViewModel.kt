@@ -1,6 +1,22 @@
 package com.example.ucp2.ui.viewmodel.matakuliah
 
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
+import androidx.lifecycle.ViewModel
 import com.example.ucp2.data.entity.MataKuliah
+import com.example.ucp2.repository.RepositoryMk
+
+class MatakuliahViewModel(private val repositoryMk: RepositoryMk) : ViewModel() {
+
+    var uiState by mutableStateOf(MkUIState())
+
+    //Memperbarui state berdasarkan input pengguna
+    fun updateState(matakuliahEvent: MatakuliahEvent) {
+        uiState = uiState.copy(
+            matakuliahEvent = matakuliahEvent,
+        )
+    }
 
 data class MkUIState(
     val matakuliahEvent: MatakuliahEvent = MatakuliahEvent(),
