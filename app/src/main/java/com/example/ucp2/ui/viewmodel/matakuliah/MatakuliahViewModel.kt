@@ -4,8 +4,10 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.ucp2.data.entity.MataKuliah
 import com.example.ucp2.repository.RepositoryMk
+import kotlinx.coroutines.launch
 
 class MatakuliahViewModel(private val repositoryMk: RepositoryMk) : ViewModel() {
 
@@ -30,6 +32,32 @@ class MatakuliahViewModel(private val repositoryMk: RepositoryMk) : ViewModel() 
         )
         uiState = uiState.copy(isEntryValid = errorState)
         return errorState.isValid()
+    }
+
+    fun saveData() {
+        val currentEvent = uiState.matakuliahEvent
+        if (validateFields()) {
+            viewModelScope.launch {
+                try {
+                    repositoryMk.insertMk(currentEvent.toMatakuliahEntity())
+                    uiState = uiState.copy(
+                        snackBarMessage = "Data Berhasil Disimpan",
+                        matakuliahEvent = MatakuliahEvent(),
+                        isEntryValid = FormErrorState()
+                    )
+                }
+                catch (e: Exception) {
+                    uiState = uiState.copy(
+                        snackBarMessage = "Data Gagal Disimpan"
+                    )
+                }
+            }
+        }
+        else{
+            uiState = uiState.copy(
+                snackBarMessage = "Input tidak Valid. Periksa Kembali data yang anda masukkan"
+            )
+        }
     }
 
 data class MkUIState(
