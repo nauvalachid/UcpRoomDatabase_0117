@@ -71,3 +71,7 @@ data class FormErrorState(
     val nama: String? = null,
     val jenisKelamin: String? = null,
 ){
+    fun isValid(): Boolean {
+        return nidn == null && nama == null && jenisKelamin == null
+    }
+}
