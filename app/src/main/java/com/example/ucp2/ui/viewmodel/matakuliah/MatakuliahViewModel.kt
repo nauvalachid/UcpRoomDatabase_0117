@@ -60,6 +60,11 @@ class MatakuliahViewModel(private val repositoryMk: RepositoryMk) : ViewModel() 
         }
     }
 
+    fun resetSnackBarMessage() {
+        uiState = uiState.copy(snackBarMessage = null)
+    }
+}
+
 data class MkUIState(
     val matakuliahEvent: MatakuliahEvent = MatakuliahEvent(),
     val isEntryValid: FormErrorState = FormErrorState(),
