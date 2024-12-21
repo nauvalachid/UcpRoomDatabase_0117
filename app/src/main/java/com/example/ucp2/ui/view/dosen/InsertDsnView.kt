@@ -22,6 +22,10 @@ import com.example.ucp2.ui.viewmodel.dosen.DosenEvent
 import com.example.ucp2.ui.viewmodel.dosen.DsnUIState
 import com.example.ucp2.ui.viewmodel.dosen.FormErrorState
 
+object DestinasiInsert : AlamatNavigasi {
+    override val route: String = "insert_dsn"
+}
+
 @Composable
 fun InsertBodyDsn(
     modifier: Modifier = Modifier,
