@@ -82,3 +82,9 @@ fun DosenEvent.toDosenEntity(): Dosen = Dosen(
     nama = nama,
     jenisKelamin = jenisKelamin
 )
+
+data class DosenEvent(
+    val nidn: String = "",
+    val nama: String ="",
+    val jenisKelamin: String =""
+)
