@@ -27,6 +27,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.ucp2.data.entity.MataKuliah
 import com.example.ucp2.ui.viewmodel.matakuliah.DetailUiState
+import com.example.ucp2.ui.viewmodel.matakuliah.toMatakuliahEntity
 
 @Composable
 fun BodyDetailMk (
