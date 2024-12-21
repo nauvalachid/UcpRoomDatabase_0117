@@ -18,14 +18,25 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.ucp2.ui.navigation.AlamatNavigasi
 import com.example.ucp2.ui.viewmodel.dosen.DosenEvent
+import com.example.ucp2.ui.viewmodel.dosen.DosenViewModel
 import com.example.ucp2.ui.viewmodel.dosen.DsnUIState
 import com.example.ucp2.ui.viewmodel.dosen.FormErrorState
+import com.example.ucp2.ui.viewmodel.dosen.PenyediaDsnViewModel
 
 object DestinasiInsert : AlamatNavigasi {
     override val route: String = "insert_dsn"
 }
+
+@Composable
+fun InsertDsnView(
+    onBack: () -> Unit,
+    onNavigate: () -> Unit,
+    modifier: Modifier = Modifier,
+    viewModel: DosenViewModel = viewModel(factory = PenyediaDsnViewModel.Factory)
+) {}
 
 @Composable
 fun InsertBodyDsn(
