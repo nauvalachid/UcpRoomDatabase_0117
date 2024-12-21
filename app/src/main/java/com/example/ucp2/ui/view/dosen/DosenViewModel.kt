@@ -59,3 +59,9 @@ class DosenViewModel(private val repositoryDsn: RepositoryDsn) : ViewModel() {
         uiState = uiState.copy(snackBarMessage = null)
     }
 }
+
+data class DsnUIState(
+    val dosenEvent: DosenEvent = DosenEvent(),
+    val isEntryValid: FormErrorState = FormErrorState(),
+    val snackBarMessage: String? = null,
+)
