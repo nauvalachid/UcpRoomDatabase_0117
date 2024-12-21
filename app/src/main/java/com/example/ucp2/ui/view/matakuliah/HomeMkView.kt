@@ -24,6 +24,13 @@ import androidx.compose.ui.unit.sp
 import com.example.ucp2.data.entity.MataKuliah
 
 @Composable
+fun ListMatakuliah (
+    listMk: List<MataKuliah>,
+    modifier: Modifier = Modifier,
+    onClick: (String) -> Unit = { }
+) {}
+
+@Composable
 fun CardMk (
     mk: MataKuliah,
     modifier: Modifier = Modifier,
