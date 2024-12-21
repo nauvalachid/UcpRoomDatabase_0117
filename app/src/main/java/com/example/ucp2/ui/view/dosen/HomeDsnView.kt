@@ -157,3 +157,10 @@ fun ListDosen (
         )
     }
 }
+
+@Composable
+fun CardDsn (
+    dsn: Dosen,
+    modifier: Modifier = Modifier,
+    onClick: () -> Unit = { }
+) {}
