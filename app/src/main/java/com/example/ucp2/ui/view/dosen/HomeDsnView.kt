@@ -24,6 +24,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.ucp2.data.entity.Dosen
 import com.example.ucp2.ui.costumwidget.TopAppBar
 import com.example.ucp2.ui.viewmodel.dosen.HomeDsnViewModel
 import com.example.ucp2.ui.viewmodel.dosen.HomeUiState
@@ -134,3 +135,10 @@ fun BodyHomeDsnView (
         }
     }
 }
+
+@Composable
+fun ListDosen (
+    listDsn: List<Dosen>,
+    modifier: Modifier = Modifier,
+    onClick: (String) -> Unit = { }
+) {}
