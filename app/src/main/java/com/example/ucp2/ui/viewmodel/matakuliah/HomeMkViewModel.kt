@@ -2,6 +2,7 @@ package com.example.ucp2.ui.viewmodel.matakuliah
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.ucp2.data.entity.MataKuliah
 import com.example.ucp2.repository.RepositoryMk
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.SharingStarted
@@ -40,3 +41,10 @@ class HomeMkViewModel (
             )
         )
 }
+
+data class HomeUiState (
+    val listMk: List<MataKuliah> = listOf(),
+    val isLoading: Boolean = false,
+    val isError: Boolean = false,
+    val errorMessage: String =""
+)
