@@ -19,7 +19,18 @@ import androidx.compose.ui.unit.dp
 import com.example.ucp2.data.entity.Dosen
 import com.example.ucp2.ui.costumwidget.DynamicSelectedTextField
 import com.example.ucp2.ui.viewmodel.matakuliah.FormErrorState
+import com.example.ucp2.ui.viewmodel.matakuliah.HomeUiState
 import com.example.ucp2.ui.viewmodel.matakuliah.MatakuliahEvent
+import com.example.ucp2.ui.viewmodel.matakuliah.MkUIState
+
+@Composable
+fun InsertBodyMk(
+    modifier: Modifier = Modifier,
+    onValueChange: (MatakuliahEvent) -> Unit,
+    uiState: MkUIState,
+    onClick: () -> Unit,
+    listDosen: HomeUiState
+) {}
 
 @Composable
 fun FormMatakuliah(
